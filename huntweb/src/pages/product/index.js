@@ -10,7 +10,7 @@ export default class Product extends Component {
     async componentDidMount() {
         const { id } = this.props.match.params;
 
-        const response = await api.get(`/product/${id}`)
+        const response = await api.get(`/products/${id}`)
 
         this.setState({ product: response.data });
     }
@@ -20,9 +20,11 @@ export default class Product extends Component {
 
         return (
             <div className="product-info">
-                <h1>{product.title}</h1>
-                <p>{product.description}</p>
-                <p>URL: <a href={product.url}>{product.url}</a></p>
+                <h1>{ product.title }</h1>
+                <p>{ product.description }</p>
+                <p>
+                    URL: <a href={ product.url }>{ product.url }</a>
+                </p>
             </div>
         )
     }
